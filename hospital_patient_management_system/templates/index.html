@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hospital / Patient Management System</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header><h1>Hospital / Patient Management System</h1><p>Patient registration, records and CRUD management</p></header>
+<main>
+<section class="card">
+<h2 id="formTitle">Register Patient</h2>
+<form id="patientForm">
+<input type="hidden" id="editId">
+<div class="grid">
+<label>Patient ID*<input id="patient_id" required maxlength="20"></label>
+<label>Patient Name*<input id="name" required></label>
+<label>Age*<input id="age" type="number" min="0" max="120" required></label>
+<label>Gender*<select id="gender" required><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select></label>
+<label>Phone*<input id="phone" required placeholder="10 digit number"></label>
+<label>Email<input id="email" type="email"></label>
+<label>Blood Group<input id="blood_group" placeholder="e.g. O+"></label>
+<label>Doctor<input id="doctor"></label>
+<label>Diagnosis<input id="diagnosis"></label>
+<label>Status<select id="status"><option>Active</option><option>Discharged</option></select></label>
+<label class="wide">Address<textarea id="address"></textarea></label>
+</div>
+<div class="actions"><button type="submit">Save Patient</button><button type="button" class="secondary" onclick="resetForm()">Clear</button></div>
+<div id="message"></div>
+</form>
+</section>
+<section class="card">
+<div class="toolbar"><h2>Patient Records</h2><input id="search" placeholder="Search patient..." oninput="loadPatients()"></div>
+<div class="tableWrap"><table><thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Phone</th><th>Doctor</th><th>Status</th><th>Actions</th></tr></thead>
+<tbody id="patientRows"></tbody></table></div>
+</section>
+</main>
+<script src="/static/app.js"></script>
+</body></html>
